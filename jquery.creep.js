@@ -10,7 +10,7 @@
     // let's start our plugin logic.
     $.extend($.fn, {
 
-        // Creep when you click the selected element(s)
+        // Creep when the selected element(s) are clicked.
         creep: function(options) {
 
             // set our options from the defaults, overriding with the
