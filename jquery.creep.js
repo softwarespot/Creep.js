@@ -63,21 +63,18 @@
 
             // store a jQuery object for our element so we can use it
             // inside our other bindings.
-            var $elem = $(this);
-
-            // check there are element(s) just in case.
-            if ($elem.length === 0) {
-                return;
-            }
+            // get the first element only.
+            var $elem = $(this).first();
 
             // scroll to the first element, if more than one exist.
-            creepToElement($elem[0], options, null);
+            creepToElement($elem, options, null);
         }
 
     });
 
     // scroll to element handler.
     var creepToElement = function($elem, options, id) {
+
         // if the destination element exists.
         if ($elem !== undefined && $elem !== null && $elem.length !== 0) {
 
