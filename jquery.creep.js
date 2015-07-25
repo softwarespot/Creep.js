@@ -1,51 +1,52 @@
 /*
  * Creep.js
  * http://creepjs.com
- * Author: James Pederson (jpederson.com)
+ * Author: James Pederson (jpederson.com), softwarespot (softwarespot.wordpress.com)
  * Licensed under the MIT, GPL licenses.
- * Version: 1.1.0
+ * Version: 2.0.0
  */
 ; (function($, window, document, undefined) {
 
     // let's start our plugin logic.
     $.extend($.fn, {
 
-        // Creep when the selected element(s) are clicked.
+        // scroll when the selected element(s) are clicked.
         creep: function(options) {
 
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
 
-            // Iterate through all the matching elements and return
+            // iterate through all the matching elements and return
             // the jQuery object to preserve chaining.
             return this.each(function() {
 
-                // Store a jQuery object for our element so we can use it
+                // store a jQuery object for our element so we can use it
                 // inside our other bindings.
                 var $elem = $(this);
+
+                // get the href attribute value.
+                var href = $elem.attr('href');
+
+                // only bind if it's a valid anchor link.
+                if (!/^#[\w\-]+$/.test(href)) {
+                    return;
+                }
 
                 // bind to the click event.
                 $elem.on('click', function(event) {
 
-                    var href = $elem.attr('href');
+                    // prevent default click propagation.
+                    event.preventDefault();
 
-                    // only do this if it's an anchor link.
-                    if (href.match('#') && href !== '#' && !href.match('http')) {
+                    // get the element based on the id.
+                    $elem = $(href);
 
-                        // prevent default click propagation.
-                        event.preventDefault();
+                    // scroll to the element.
+                    creepToElement($elem, options, href);
 
-                        // remove the octothorpe.
-                        var href_trimmed = href.replace('#', '');
-
-                        // scroll to the element.
-                        creepToElement(href_trimmed, options);
-
-                        // fallback to prevent jitter.
-                        return false;
-
-                    }
+                    // fallback to prevent jitter.
+                    return false;
 
                 });
 
@@ -53,72 +54,40 @@
 
         },
 
-        // Creep to the selected element
+        // scroll to the selected element.
         creepTo: function(options) {
 
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
 
-            // Iterate through all the matching elements and return
-            // the jQuery object to preserve chaining.
-            return this.each(function() {
+            // store a jQuery object for our element so we can use it
+            // inside our other bindings.
+            var $elem = $(this);
 
-                // Store a jQuery object for our element so we can use it
-                // inside our other bindings.
-                var $elem = $(this);
+            // check there are element(s) just in case.
+            if ($elem.length === 0) {
+                return;
+            }
 
-                // bind to the click event.
-                $elem.on('click', function(event) {
-
-                    var href = $elem.attr('href');
-
-                    // only do this if it's an anchor link.
-                    if (href.match('#') && href !== '#' && !href.match('http')) {
-
-                        // prevent default click propagation.
-                        event.preventDefault();
-
-                        // remove the octothorpe.
-                        var href_trimmed = href.replace('#', '');
-
-                        // scroll to the element.
-                        creepToElement(href_trimmed, options);
-
-                        // fallback to prevent jitter.
-                        return false;
-
-                    }
-
-                });
-
-            });
-
+            // scroll to the first element, if more than one exist.
+            creepToElement($elem[0], options, null);
         }
 
     });
 
     // scroll to element handler.
-    var creepToElement = function(id, options) {
-
-        // grab the element to scroll to based on the name attribute of an a element.
-        var $elem = $('a[name="' + id + '"]');
-
-        // if that didn't work, look for an element with just the id.
-        if ($elem.length === 0) {
-            $elem = $('#' + id);
-        }
-
+    var creepToElement = function($elem, options, id) {
         // if the destination element exists.
-        if ($elem.length !== 0) {
+        if ($elem !== undefined && $elem !== null && $elem.length !== 0) {
 
             // scroll to the element.
             $('html, body').animate({
                 scrollTop: $elem.offset().top + options.offset
             }, options.speed);
 
-            // if we have pushState
-            if (typeof(history.pushState) === 'function') {
+            // if we have pushState,
+            if (id !== null && typeof(history.pushState) === 'function') {
                 history.pushState(null, null, '#' + id);
             }
 
