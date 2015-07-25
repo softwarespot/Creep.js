@@ -17,6 +17,9 @@
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
 
+            // check the options.
+            checkOptions(options);
+
             // iterate through all the matching elements and return
             // the jQuery object to preserve chaining.
             return this.each(function() {
@@ -61,6 +64,9 @@
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
 
+            // check the options.
+            checkOptions(options);
+
             // store a jQuery object for our element so we can use it
             // inside our other bindings.
             // get the first element only.
@@ -71,6 +77,25 @@
         }
 
     });
+
+    // check the options.
+    var checkOptions = function(options) {
+
+        if (typeof(options.history) !== 'boolean') {
+            options.history = false;
+        }
+
+        // set the default value if not a number.
+        if (typeof(options.offset) !== 'number') {
+            options.offset = 0;
+        }
+
+        // set the default value if not a number or less that zero.
+        if (typeof(options.speed) !== 'number' || options.speed < 0) {
+            options.speed = 500;
+        }
+
+    };
 
     // scroll to element handler.
     var creepToElement = function($elem, options, id) {
@@ -84,8 +109,8 @@
             }, options.speed);
 
             // if we have pushState,
-            if (id !== null && typeof(history.pushState) === 'function') {
-                history.pushState(null, null, '#' + id);
+            if (options.history && id !== null && typeof(history.pushState) === 'function') {
+                history.pushState(null, null, id);
             }
 
         }
@@ -96,8 +121,9 @@
     // Set up some default options for our plugin that can be overridden
     // as needed when we actually instantiate our plugin link elements.
     $.fn.creep.options = {
+        history: false,
         offset: 0,
-        speed: 1000
+        speed: 500
     };
 
 })(jQuery, window, document);
