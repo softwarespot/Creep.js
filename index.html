@@ -1,91 +1,144 @@
-<!doctype html>
-<title>Creep.js - A Smooth Scrolling Plugin for jQuery</title>
-<meta name="viewport" content="width=device-width">
-<link href="example.css" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Example 5: Using Creep.js</title>
 
-<div id="container">
+	<!--Mobile Specific Metas-->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	<div class="header green">
-		<div class="wrap">
+	<!--Font-->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
 
-			<h1>Creep.js</h1>
-			<h3>A tiny jQuery plugin for smooth scrolling anchor links.</h3>
+	<style>
+		/*Body styling*/
+		body {
+			font-family: 'Open Sans', sans-serif, Arial;
+		}
 
-		</div>
-	</div>
+		/*Hyperlink styling*/
+		a {
+			color: #2980b9;
+			text-decoration: none;
+			-webkit-transition: all .3s ease-out;
+			transition: all .3s ease-out; /*This stops the change in colour being too clunky, but instead with a smooth transition*/
+		}
 
+		a:hover {
+			color: #3498db;
+		}
 
-	<div class="block grey-lighter" id="intro">
-		<div class="wrap">
+		article {
+			border: #222 2px solid;
+			margin: 0 0 15px 0;
+			position: relative;
+		}
 
-			<h2>Smooth Scrolling Simplified</h2>
-			<p>This plugin makes functioning anchor links smooth scroll to their destinations. With a little configuration, it's simple to target the affected links more specifically to avoid conflicts with other plugins.</p>
-			<p>All you need is jQuery 1.10+ (or legacy 1.4.0+ - <a href="http://code.jquery.com" target="_blank">get latest</a>) and a copy of <code>jquery.creep.min.js</code> to get started.</p>
-			<p><script src="https://gist.github.com/jpederson/11232340.js"></script></p>
-			<p>Check the <a href="https://github.com/jpederson/Creep.js/wiki">wiki</a> for more documentation of how to use Creep.js</p>
+		article > h2 {
+			background: #3498db;
+			margin: 0;
+			padding: 0 10px 5px;
 
-		</div>
-	</div>
+		}
 
+		article p {
+			margin: 5px 10px 0;
+		}
+		//#2ecc71
+		/*Set the last article's margin*/
+		article:last-of-type {
+			margin: 0;
+		}
 
-	<div class="block grey" id="download">
-		<div class="wrap">
+		article .top {
+			position: absolute;
+			right: 2.5%;
+			top: 10px;
+		}
 
-			<h2>Download Creep.js</h2>
-			<p>Visit the project on Github for updates or just download the source and dig in!</p>
-			<p class="buttons"><a href="https://github.com/jpederson/Creep.js/" target="_blank" class="btn">Creep.js on Github</a> <a href="https://github.com/jpederson/Creep.js/archive/gh-pages.zip" target="_blank" class="btn green">Download Latest</a></p>
+		/*Set the to a pointer on hover*/
+		.top:hover {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body id="top">
+	<h1>An example of using Creep.js</h1>
 
-		</div>
-	</div>
+	<nav>
+		<a href="#article-1">Article 1</a>
+		<a href="#article-2">Article 2</a>
+		<a href="#article-3">Article 3</a>
+		<a href="#article-4">Article 4</a>
+		<a href="#article-5">Article 5</a>
+	</nav>
 
+	<article id="article-1">
+		<h2>Article Title 1</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<span class="top" title="This has a click event handler, in which it creeps to the top id">Top</span>
+	</article>
 
-	<div class="block green footer">
-		<div class="wrap">
+	<article id="article-2">
+		<h2>Article Title 2</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<span class="top" title="This has a click event handler, in which it creeps to the top id">Top</span>
+	</article>
 
-			<h2>About the Author</h2>
-			<div class="fifty">
-				<p>Built with care for <strong>free</strong> by me, <a href="http://jpederson.com" target="_blank">James Pederson</a>.</p>
-				<p>Based on work by <a href="http://www.bradsknutson.com/">Brad Knutson</a>.</p>
-				<p>I'm a web developer and Credit Union advocate from Madison, WI. I'm also available for hire, <a href="http://jpederson.com/">get in touch</a> so we can discuss your project.</p>
-			</div>
-			<div class="fifty">
-				<p>Did my script help you? Buy me a beer to show me some love! Also, visit my site and email me to let me know your thoughts.</p>
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-					<p>
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="hosted_button_id" value="BNAQJ6MC449RQ">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</p>
-				</form>
-			</div>
-			<div class="clear"></div>
+	<article id="article-3">
+		<h2>Article Title 3</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<span class="top" title="This has a click event handler, in which it creeps to the top id">Top</span>
+	</article>
 
-		</div>
-	</div>
+	<article id="article-4">
+		<h2>Article Title 41</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<span class="top" title="This has a click event handler, in which it creeps to the top id">Top</span>
+	</article>
 
-</div>
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="jquery.creep.min.js"></script>
-<script>
+	<article id="article-5">
+		<h2>Article Title 5</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam erat vel turpis aliquet suscipit. Donec in mauris in neque bibendum dapibus vitae ac augue. Suspendisse ut fermentum mauris. Ut hendrerit, diam nec euismod commodo, nunc magna sagittis nibh, a finibus nisl tellus et risus. In nulla diam, accumsan at elementum pharetra, interdum eu turpis. Etiam tincidunt lectus in iaculis commodo. Proin malesuada sagittis quam. Aliquam pulvinar justo quis arcu feugiat ullamcorper. Nunc rhoncus nisi ut feugiat porttitor. Sed id dui sit amet ante aliquam dictum.</p>
+		<span class="top" title="This has a click event handler, in which it creeps to the top id">Top</span>
+	</article>
 
+	<h6>Colour scheme by <a href="http://flatuicolors.com/">FlatUIColors.com</a></h6>
 
-// start accrue.js
-$(document).ready(function(){
+	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src="jquery.creep.js"></script>
+	<script>
+		$(function () {
 
-	// this will bind to all the anchorlinks
-	$("a").creep();
+			// Set a elements with a valid fragment, to creep to the particular fragment
+			$('a[href^="#"]').creep();
 
-});
+			// If an element with a class of .top is selected, then creep to the top id.
+			// It also demonstrates how to pass an object literal or params
+			$('.top').on('click', function () {
+				$('#top').creepTo({
+					// Don't store to the history state
+					history: false,
 
+					// Set the offset ratio to zero (default value)
+					offset: 0,
 
+					// Set the speed rate
+					speed: 200
+				});
+			});
 
-// analytics
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-614793-12', 'jpederson.github.io');
-ga('send', 'pageview');
-
-</script>
+		})
+	</script>
+</body>
+</html>
