@@ -37,7 +37,7 @@
                 }
 
                 // bind to the click event.
-                $elem.on('click', function(event) {
+                $elem.on('click.plugin.creep', function(event) {
 
                     // prevent default click propagation.
                     event.preventDefault();
