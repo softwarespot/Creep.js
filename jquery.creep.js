@@ -67,13 +67,8 @@
             // check the options.
             checkOptions(options);
 
-            // store a jQuery object for our element so we can use it
-            // inside our other bindings.
-            // get the first element only.
-            var $elem = $(this).first();
-
             // scroll to the first element, if more than one exist.
-            creepToElement($elem, options, null);
+            creepToElement($(this).first(), options, null);
         }
 
     });
