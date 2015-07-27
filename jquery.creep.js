@@ -3,7 +3,7 @@
  * http://creepjs.com
  * Author: James Pederson (jpederson.com), softwarespot (softwarespot.wordpress.com)
  * Licensed under the MIT, GPL licenses.
- * Version: 2.0.0
+ * Version: 2.0.0-beta
  */
 ; (function($, window, document, undefined) {
 
@@ -32,7 +32,7 @@
                 var href = $elem.attr('href');
 
                 // only bind if it's a valid anchor link.
-                if (!/^#[\w\-]+$/.test(href)) {
+                if (href === null || !/^#[\w\-]+$/.test(href)) {
                     return;
                 }
 
