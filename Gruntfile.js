@@ -42,6 +42,13 @@ module.exports = function(grunt) {
             js: {
                 files: {
                     'jquery.creep.min.js': 'jquery.creep.js',
+                },
+                options: {
+                    compress: {
+                        dead_code: true,
+                        drop_console: true,
+                        unused: true
+                    }
                 }
             }
         }
