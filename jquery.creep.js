@@ -8,7 +8,7 @@
 ; (function($, window, document, undefined) {
 
     // let's start our plugin logic.
-    $.extend($.fn, {
+    $.fn.extend({
 
         // scroll when the selected element(s) are clicked.
         creep: function(options) {
