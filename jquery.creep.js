@@ -90,10 +90,9 @@
             options.speed = 500;
         }
 
-    };
-
+    },
     // scroll to element handler.
-    var creepToElement = function($elem, options, id) {
+    creepToElement = function($elem, options, id) {
 
         // if the destination element exists.
         if ($elem !== undefined && $elem !== null && $elem.length !== 0) {
