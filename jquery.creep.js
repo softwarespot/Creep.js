@@ -69,6 +69,9 @@
 
             // scroll to the first element, if more than one exist.
             creepToElement($(this).first(), options, null);
+
+            // continue chaining.
+            return this;
         }
 
     });
