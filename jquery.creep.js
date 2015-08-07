@@ -7,6 +7,8 @@
  */
 ; (function($, window, document, undefined) {
 
+    // PLUGIN LOGIC
+
     // let's start our plugin logic.
     $.fn.extend({
 
@@ -76,26 +78,29 @@
 
     });
 
+    // METHODS
+
     // check the options.
     var checkOptions = function(options) {
 
-        if (typeof(options.history) !== 'boolean') {
+        if ($.type(options.history) !== 'boolean') {
             options.history = false;
         }
 
         // set the default value if not a number.
-        if (typeof(options.offset) !== 'number') {
+        if ($.isNumeric(options.offset)) {
             options.offset = 0;
         }
 
         // set the default value if not a number or less that zero.
-        if (typeof(options.speed) !== 'number' || options.speed < 0) {
+        if (!$.isNumeric(options.speed) || options.speed < 0) {
             options.speed = 500;
         }
 
-    },
+    };
+
     // scroll to element handler.
-    creepToElement = function($elem, options, id) {
+    var creepToElement = function($elem, options, id) {
 
         // if the destination element exists.
         if ($elem !== undefined && $elem !== null && $elem.length !== 0) {
@@ -105,8 +110,8 @@
                 scrollTop: $elem.offset().top + options.offset
             }, options.speed);
 
-            // if we have pushState,
-            if (options.history && id !== null && typeof(history.pushState) === 'function') {
+            // if we have pushState.
+            if (options.history && id !== null && $.isFunction(history.pushState)) {
                 history.pushState(null, null, id);
             }
 
@@ -115,6 +120,7 @@
     };
 
     // DEFAULTS
+
     // Set up some default options for our plugin that can be overridden
     // as needed when we actually instantiate our plugin link elements.
     $.fn.creep.options = {
