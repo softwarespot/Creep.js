@@ -5,7 +5,7 @@
  * Licensed under the MIT, GPL licenses.
  * Version: 2.0.0-beta
  */
-; (function($, window, document, undefined) {
+; (function ($, window, document, undefined) {
 
     // PLUGIN LOGIC
 
@@ -13,7 +13,7 @@
     $.fn.extend({
 
         // scroll when the selected element(s) are clicked.
-        creep: function(options) {
+        creep: function (options) {
 
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
@@ -24,7 +24,7 @@
 
             // iterate through all the matching elements and return
             // the jQuery object to preserve chaining.
-            return this.each(function() {
+            return this.each(function () {
 
                 // store a jQuery object for our element so we can use it
                 // inside our other bindings.
@@ -39,7 +39,7 @@
                 }
 
                 // bind to the click event.
-                $elem.on('click.creep.js', function(event) {
+                $elem.on('click.creep.js', function (event) {
 
                     // prevent default click propagation.
                     event.preventDefault();
@@ -60,7 +60,7 @@
         },
 
         // scroll to the selected element.
-        creepTo: function(options) {
+        creepTo: function (options) {
 
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
@@ -81,7 +81,7 @@
     // METHODS
 
     // check the options.
-    var checkOptions = function(options) {
+    var checkOptions = function (options) {
 
         if ($.type(options.history) !== 'boolean') {
             options.history = false;
@@ -100,7 +100,7 @@
     };
 
     // scroll to element handler.
-    var creepToElement = function($elem, options, id) {
+    var creepToElement = function ($elem, options, id) {
 
         // if the destination element exists.
         if ($elem !== undefined && $elem !== null && $elem.length !== 0) {
@@ -111,7 +111,7 @@
             }, options.speed);
 
             // if we have pushState.
-            if (options.history && id !== null && $.isFunction(history.pushState)) {
+            if (options.history && id !== null && $.isfunction (history.pushState)) {
                 history.pushState(null, null, id);
             }
 
