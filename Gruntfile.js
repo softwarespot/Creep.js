@@ -1,16 +1,16 @@
 
 module.exports = function(grunt) {
 
-    // load all grunt tasks
+    // Load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
 
-        // watch for changes and trigger compass, jshint, uglify and livereload
+        // Watch for changes to the main file to trigger uglification and hinting
         watch: {
             js: {
                 files: ['jquery.creep.js'],
-                tasks: ['uglify'],
+                tasks: ['jshint', 'uglify'],
                 options: {
                     livereload: true,
                 },
@@ -24,11 +24,11 @@ module.exports = function(grunt) {
             }
         },
 
-        // we use the Sass
+        // Compile the saas file to css
         sass: {
             dist: {
                 options: {
-                    // nested, compact, compressed, expanded
+                    // Options are 'nested', 'compact', 'compressed', 'expanded'
                     style: 'compressed'
                 },
                 files: {
@@ -37,16 +37,37 @@ module.exports = function(grunt) {
             }
         },
 
-        // uglify to concat & minify
+        // Check the code meets the following standards
+        jshint: {
+            all: ['jquery.creep.js'],
+            options: {
+                curly: true,
+                eqeqeq: true,
+                eqnull: true,
+                notypeof: true,
+                undef: true,
+                browser: true,
+                globals: {
+                  jQuery: true,
+                  '$': true
+                }
+            }
+        },
+
+        // Uglify aka minify the main file
         uglify: {
             js: {
                 files: {
                     'jquery.creep.min.js': 'jquery.creep.js',
                 },
                 options: {
+                    // See the uglify documentation for more details
                     compress: {
+                        comparisons: true,
+                        conditionals: true,
                         dead_code: true,
                         drop_console: true,
+                        unsafe: true,
                         unused: true
                     }
                 }
@@ -55,6 +76,9 @@ module.exports = function(grunt) {
 
     });
 
-    // register task
+    // Register the default task to watch for any changes to the main files
     grunt.registerTask('default', ['watch']);
+
+    // 'grunt jshint' to check the syntax
+    // 'grunt uglify' to uglify the main file
 };
