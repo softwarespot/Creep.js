@@ -9,12 +9,14 @@ Quickly add smooth scrolling to any links in your site using this simple plugin.
 To get going quickly with Creep, just include the library after jQuery, select your link tags, and run creep on them. This would do it if you're starting fresh:
 
 ```html
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="jquery.creep.min.js"></script>
 <script>
-$(function(){
-  $("a").creep();
-});
+    $(function (){
+
+      $('a').creep();
+
+    });
 </script>
 ```
 
@@ -30,8 +32,8 @@ npm install jquery-creep
 
 There are only a couple options as of now. Here they are:
 
-```js
-$("a").creep({
+```javascript
+$('a').creep({
   offset: 0,
   speed: 1000
 });
