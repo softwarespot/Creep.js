@@ -81,7 +81,7 @@
     // METHODS
 
     // check the options.
-    var checkOptions = function (options) {
+    function checkOptions(options) {
 
         if ($.type(options.history) !== 'boolean') {
             options.history = false;
@@ -97,10 +97,10 @@
             options.speed = 500;
         }
 
-    };
+    }
 
     // scroll to element handler.
-    var creepToElement = function ($elem, options, id) {
+    function creepToElement($elem, options, id) {
 
         // if the destination element exists.
         if ($elem !== undefined && $elem !== null && $elem.length !== 0) {
@@ -111,13 +111,13 @@
             }, options.speed);
 
             // if we have pushState.
-            if (options.history && id !== null && $.isfunction (history.pushState)) {
+            if (options.history && id !== null && $.isfunction(history.pushState)) {
                 history.pushState(null, null, id);
             }
 
         }
 
-    };
+    }
 
     // DEFAULTS
 
