@@ -36,7 +36,7 @@
 
                 // only bind if it's a valid anchor link.
                 if (href === null || !/^#[\w\-]+$/.test(href)) {
-                    return;
+                    return this;
                 }
 
                 // bind to the click event.
@@ -55,6 +55,8 @@
                     return false;
 
                 });
+
+                return this;
 
             });
 
