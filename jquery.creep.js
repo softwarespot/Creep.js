@@ -29,10 +29,10 @@
 
                 // store a jQuery object for our element so we can use it
                 // inside our other bindings.
-                var $elem = $(this);
+                var $element = $(this);
 
                 // get the href attribute value.
-                var href = $elem.attr('href');
+                var href = $element.attr('href');
 
                 // only bind if it's a valid anchor link.
                 if (href === null || !/^#[\w\-]+$/.test(href)) {
@@ -40,16 +40,16 @@
                 }
 
                 // bind to the click event.
-                $elem.on('click.creep.js', function (event) {
+                $element.on('click.creep.js', function (event) {
 
                     // prevent default click propagation.
                     event.preventDefault();
 
                     // get the element based on the id.
-                    $elem = $(href);
+                    $element = $(href);
 
                     // scroll to the element.
-                    creepToElement($elem, options, href);
+                    creepToElement($element, options, href);
 
                     // fallback to prevent jitter.
                     return false;
@@ -101,14 +101,14 @@
     }
 
     // scroll to element handler.
-    function creepToElement($elem, options, id) {
+    function creepToElement($element, options, id) {
 
         // if the destination element exists.
-        if ($elem !== undefined && $elem !== null && $elem.length !== 0) {
+        if ($element !== undefined && $element !== null && $element.length !== 0) {
 
             // scroll to the element.
             $('html, body').animate({
-                scrollTop: $elem.offset().top + options.offset
+                scrollTop: $element.offset().top + options.offset
             }, options.speed);
 
             // if we have pushState.
