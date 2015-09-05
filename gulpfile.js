@@ -62,13 +62,14 @@ gulp.task('uglify', ['clean'], function () {
         .pipe(gulp.dest('./'));
 });
 
+// Register the default task
+gulp.task('build', ['jshint', 'saas', 'uglify']);
+
 // Watch for changes to the main file
-gulp.task('watch', function () {
+gulp.task('default', function () {
     gulp.watch('./' + Assets.js.main, ['jshint', 'saas', 'uglify']);
 });
 
-// Register the default task
-gulp.task('default', ['jshint', 'saas', 'uglify']);
-
 // 'gulp jshint' to check the syntax
+// 'gulp saas' to compile the saas file
 // 'gulp uglify' to uglify the main file
