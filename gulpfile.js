@@ -67,7 +67,8 @@ gulp.task('build', ['jshint', 'saas', 'uglify']);
 
 // Watch for changes to the main file
 gulp.task('default', function () {
-    gulp.watch('./' + Assets.js.main, ['jshint', 'saas', 'uglify']);
+    gulp.watch('./' + Assets.css.main, ['saas']);
+    gulp.watch('./' + Assets.js.main, ['jshint', 'uglify']);
 });
 
 // 'gulp jshint' to check the syntax
