@@ -15,7 +15,6 @@
 
         // scroll when the selected element(s) are clicked.
         creep: function (options) {
-
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
@@ -26,7 +25,6 @@
             // iterate through all the matching elements and return
             // the jQuery object to preserve chaining.
             return this.each(function () {
-
                 // store a jQuery object for our element so we can use it
                 // inside our other bindings.
                 var $element = $(this);
@@ -41,7 +39,6 @@
 
                 // bind to the click event.
                 $element.on('click.creep.js', function (event) {
-
                     // prevent default click propagation.
                     event.preventDefault();
 
@@ -53,18 +50,15 @@
 
                     // fallback to prevent jitter.
                     return false;
-
                 });
 
                 return this;
-
             });
 
         },
 
         // scroll to the selected element.
         creepTo: function (options) {
-
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
@@ -85,7 +79,6 @@
 
     // check the options.
     function checkOptions(options) {
-
         if ($.type(options.history) !== 'boolean') {
             options.history = false;
         }
@@ -99,15 +92,12 @@
         if (!$.isNumeric(options.speed) || options.speed < 0) {
             options.speed = 500;
         }
-
     }
 
     // scroll to element handler.
     function creepToElement($element, options, id) {
-
         // if the destination element exists.
         if ($element !== undefined && $element !== null && $element.length !== 0) {
-
             // scroll to the element.
             $('html, body').animate({
                 scrollTop: $element.offset().top + options.offset
@@ -117,9 +107,7 @@
             if (options.history && id !== null && $.isfunction(history.pushState)) {
                 history.pushState(null, null, id);
             }
-
         }
-
     }
 
     // DEFAULTS
@@ -131,5 +119,4 @@
         offset: 0,
         speed: 500
     };
-
 })(jQuery, window, document);
