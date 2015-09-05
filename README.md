@@ -20,7 +20,7 @@ To get going quickly with Creep, just include the library after jQuery, select y
 </script>
 ```
 
-### NPM Install
+### npm Install
 
 ```shell
     npm install jquery-creep
