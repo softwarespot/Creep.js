@@ -14,7 +14,7 @@ To get going quickly with Creep, just include the library after jQuery, select y
 <script>
     $(function (){
 
-      $('a').creep();
+        $('a').creep();
 
     });
 </script>
@@ -23,7 +23,7 @@ To get going quickly with Creep, just include the library after jQuery, select y
 ### NPM Install
 
 ```shell
-npm install jquery-creep
+    npm install jquery-creep
 ```
 
 *****
@@ -34,8 +34,8 @@ There are only a couple options as of now. Here they are:
 
 ```javascript
 $('a').creep({
-  offset: 0,
-  speed: 1000
+    offset: 0,
+    speed: 1000
 });
 ```
 
@@ -51,6 +51,4 @@ Adjust the scroll time. Set in milliseconds.
 
 ### Contributing
 
-To contribute, you'll need [nodejs](http://nodejs.org/) and [Grunt](http://gruntjs.com/) installed. Fork and clone the repo, then visit the directory in the terminal and type `npm install`. After that you can simply run the `grunt` command to watch the files in the project. It'll automatically lint, test, compile, and minify the plugin files so you can just code.
-
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+To contribute, you'll need [nodejs](http://nodejs.org/) and [gulp](gulpjs.com) installed. Fork and clone the repo, then visit the directory in the terminal and type `npm install`. After that you can simply run the `gulp` command to watch the files in the project. It'll automatically lint, test, compile, and minify the plugin files so you can just code.
