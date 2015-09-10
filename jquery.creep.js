@@ -22,6 +22,14 @@
             // check the options.
             checkOptions(options);
 
+            // The following idea was taken from sizzle.js, URL: https://github.com/jquery/sizzle/blob/master/dist/sizzle.js.
+
+            // http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier.
+            var identifier = '(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+';
+
+            // Create a regular expression object to test valid id fragments.
+            var reIdentifier = new RegExp('^#' + identifier + '$');
+
             // iterate through all the matching elements and return
             // the jQuery object to preserve chaining.
             return this.each(function () {
@@ -33,7 +41,7 @@
                 var href = $element.attr('href');
 
                 // only bind if it's a valid anchor link.
-                if (href === null || !/^#[\w\-]+$/.test(href)) {
+                if (href === null || !reIdentifier.test(href)) {
                     return this;
                 }
 
