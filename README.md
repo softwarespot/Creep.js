@@ -51,4 +51,4 @@ Adjust the scroll time. Set in milliseconds.
 
 ### Contributing
 
-To contribute, you'll need [nodejs](http://nodejs.org/) and [gulp](gulpjs.com) installed. Fork and clone the repo, then visit the directory in the terminal and type `npm install`. After that you can simply run the `gulp` command to watch the files in the project. It'll automatically lint, test, compile, and minify the plugin files so you can just code.
+To contribute, you'll need [nodejs](http://nodejs.org/) and [gulp](http://gulpjs.com) installed. Fork and clone the repo, then visit the directory in the terminal and type `npm install`. After that you can simply run the `gulp` command to watch the files in the project. It'll automatically lint, test, compile, and minify the plugin files so you can just code.
