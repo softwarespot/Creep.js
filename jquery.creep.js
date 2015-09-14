@@ -3,10 +3,10 @@
  * http://creepjs.com
  * Author: James Pederson (jpederson.com), softwarespot (softwarespot.wordpress.com)
  * Licensed under the MIT, GPL licenses.
- * Version: 2.0.0-beta
+ * Version: 2.0.0
  */
 ; // jshint ignore:line
-(function ($, window, document, undefined) {
+(function (window, $, undefined) {
 
     // PLUGIN LOGIC
 
@@ -127,4 +127,5 @@
         offset: 0,
         speed: 500
     };
-})(jQuery, window, document);
+})(this, this.jQuery);
+
