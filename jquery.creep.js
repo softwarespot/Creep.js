@@ -14,7 +14,7 @@
     $.fn.extend({
 
         // scroll when the selected element(s) are clicked.
-        creep: function (options) {
+        creep: function creep(options) {
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
