@@ -32,7 +32,7 @@
 
             // iterate through all the matching elements and return
             // the jQuery object to preserve chaining.
-            return this.each(function () {
+            return this.each(function each() {
                 // store a jQuery object for our element so we can use it
                 // inside our other bindings.
                 var $element = $(this);
@@ -46,7 +46,7 @@
                 }
 
                 // bind to the click event.
-                $element.on('click.creep.js', function (event) {
+                $element.on('click.creep.js', function onClick(event) {
                     // prevent default click propagation.
                     event.preventDefault();
 
@@ -66,7 +66,7 @@
         },
 
         // scroll to the selected element.
-        creepTo: function (options) {
+        creepTo: function creepTo(options) {
             // set our options from the defaults, overriding with the
             // parameter we pass into this function.
             options = $.extend({}, $.fn.creep.options, options);
