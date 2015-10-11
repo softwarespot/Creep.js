@@ -81,11 +81,11 @@ gulp.task('version', function () {
 
     var reVersion = /\n\s*\*\s+Version:\s+((?:\d+\.){2}\d+)/;
     var version = fs.readFileSync('./' + Assets.js.main, {
-            encoding: 'utf8'
-        })
+        encoding: 'utf8'
+    })
 
-        // Match is found in the 2nd element
-        .match(reVersion)[1];
+    // Match is found in the 2nd element
+    .match(reVersion)[1];
 
     // package.json version property
     return gulp.src('./' + Assets.package)
@@ -94,12 +94,12 @@ gulp.task('version', function () {
 });
 
 // Register the default task
-gulp.task('build', ['jshint', 'saas', 'version', 'clean', 'uglify', 'prettify-js']);
+gulp.task('build', ['jshint', 'saas', 'version', 'uglify', 'prettify-js']);
 
 // Watch for changes to the js and scss files
 gulp.task('default', function () {
     gulp.watch('./' + Assets.css.main, ['saas']);
-    gulp.watch('./' + Assets.js.main, ['version', 'jshint', 'clean', 'uglify']);
+    gulp.watch('./' + Assets.js.main, ['version', 'jshint', 'uglify']);
 });
 
 // 'gulp build' to invoke all tasks above
