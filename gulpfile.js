@@ -7,7 +7,6 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
-var del = require('del');
 var fs = require('fs');
 
 // See the saas documentation for more details
@@ -21,8 +20,10 @@ var uglifySettings = {
     compress: {
         comparisons: true,
         conditionals: true,
+        /* jscs: disable */
         dead_code: true,
         drop_console: true,
+        /* jscs: enable */
         unsafe: true,
         unused: true
     }
@@ -40,11 +41,6 @@ var Assets = {
     },
     package: 'package.json'
 };
-
-// Clean the current directory
-gulp.task('clean', function (cb) {
-    del([Assets.js.minified], cb);
-});
 
 // Check the main js file meets the following standards outlined in .jshintrc
 gulp.task('jshint', function () {
@@ -87,6 +83,7 @@ gulp.task('version', function () {
     var version = fs.readFileSync('./' + Assets.js.main, {
             encoding: 'utf8'
         })
+
         // Match is found in the 2nd element
         .match(reVersion)[1];
 
