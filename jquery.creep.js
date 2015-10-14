@@ -28,7 +28,7 @@
             var identifier = '(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+';
 
             // Create a regular expression object to test valid id fragments.
-            var reIdentifier = new RegExp('^#' + identifier + '$');
+            var reIdentifier = new window.RegExp('^#' + identifier + '$');
 
             // iterate through all the matching elements and return
             // the jQuery object to preserve chaining.
