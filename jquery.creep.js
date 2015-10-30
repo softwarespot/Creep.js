@@ -20,7 +20,7 @@
             options = $.extend({}, $.fn.creep.options, options);
 
             // check the options.
-            checkOptions(options);
+            _checkOptions(options);
 
             // The following idea was taken from sizzle.js, URL: https://github.com/jquery/sizzle/blob/master/dist/sizzle.js.
 
@@ -54,7 +54,7 @@
                     $element = $(href);
 
                     // scroll to the element.
-                    creepToElement($element, options, href);
+                    _creepToElement($element, options, href);
 
                     // fallback to prevent jitter.
                     return false;
@@ -72,10 +72,10 @@
             options = $.extend({}, $.fn.creep.options, options);
 
             // check the options.
-            checkOptions(options);
+            _checkOptions(options);
 
             // scroll to the first element, if more than one exist.
-            creepToElement($(this).first(), options, null);
+            _creepToElement($(this).first(), options, null);
 
             // continue chaining.
             return this;
@@ -86,7 +86,7 @@
     // METHODS
 
     // check the options.
-    function checkOptions(options) {
+    function _checkOptions(options) {
         if ($.type(options.history) !== 'boolean') {
             options.history = false;
         }
@@ -103,7 +103,7 @@
     }
 
     // scroll to element handler.
-    function creepToElement($element, options, id) {
+    function _creepToElement($element, options, id) {
         // if the destination element exists.
         if ($element !== undefined && $element !== null && $element.length !== 0) {
             // scroll to the element.
