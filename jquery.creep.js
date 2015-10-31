@@ -6,7 +6,7 @@
  * Version: 2.0.0
  */
 ; // jshint ignore:line
-(function (window, $, undefined) {
+(function creepNamespace(window, $, undefined) {
 
     // PLUGIN LOGIC
 
@@ -79,7 +79,7 @@
 
             // continue chaining.
             return this;
-        }
+        },
 
     });
 
@@ -108,7 +108,7 @@
         if ($element !== undefined && $element !== null && $element.length !== 0) {
             // scroll to the element.
             $('html, body').animate({
-                scrollTop: $element.offset().top + options.offset
+                scrollTop: $element.offset().top + options.offset,
             }, options.speed);
 
             // if we have pushState.
@@ -125,7 +125,7 @@
     $.fn.creep.options = {
         history: false,
         offset: 0,
-        speed: 500
+        speed: 500,
     };
-})(this, this.jQuery);
+})(window, window.jQuery);
 
