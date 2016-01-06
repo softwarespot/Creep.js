@@ -7,7 +7,6 @@
  */
 ; // jshint ignore:line
 (function creepNamespace(window, $, undefined) {
-
     // PLUGIN LOGIC
 
     // let's start our plugin logic.
@@ -62,7 +61,6 @@
 
                 return this;
             });
-
         },
 
         // scroll to the selected element.
@@ -128,4 +126,3 @@
         speed: 500,
     };
 })(window, window.jQuery);
-
