@@ -12,7 +12,7 @@ To get going quickly with Creep, just include the library after jQuery, select y
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="jquery.creep.min.js"></script>
 <script>
-    $(function (){
+    $(function () {
 
         $('a').creep();
 

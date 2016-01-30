@@ -5,13 +5,11 @@
  * Licensed under the MIT, GPL licenses.
  * Version: 2.0.0
  */
-; // jshint ignore:line
-(function creepNamespace(window, $, undefined) {
+(function creepNamespace(window, $) {
     // PLUGIN LOGIC
 
     // let's start our plugin logic.
     $.fn.extend({
-
         // scroll when the selected element(s) are clicked.
         creep: function creep(options) {
             // set our options from the defaults, overriding with the
@@ -78,7 +76,6 @@
             // continue chaining.
             return this;
         },
-
     });
 
     // METHODS
@@ -125,4 +122,4 @@
         offset: 0,
         speed: 500,
     };
-})(window, window.jQuery);
+}(window, window.jQuery));
