@@ -20,7 +20,6 @@
 		a {
 			color: #2980b9;
 			text-decoration: none;
-			-webkit-transition: all .3s ease-out;
 			transition: all .3s ease-out; /*This stops the change in colour being too clunky, but instead with a smooth transition*/
 		}
 
@@ -136,7 +135,7 @@
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="jquery.creep.min.js"></script>
 	<script>
-		$(function () {
+		$(function domReady($) {
 
 			// Set a elements with a valid fragment, to creep to the particular fragment
 			$('a[href^="#"]').creep();
